@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Nested cft template example
+Parameters:
+  NamingPrefix:
+    Description: How to prefix resource names
+    Type: String
+  Email:
+    Description: Email subscription to the topic
+    Type: String
+Resources:
+  Child:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: ../simple_cft/cft.yaml
+      Parameters:
+        NamingPrefix: !Ref NamingPrefix
+        Email: !Ref Email
+Outputs:
+  BucketName:
+    Description: 'Bucket name'
+    Value: !GetAtt Child.Outputs.BucketName
+    Export:
+      Name: !Sub 'bucket-${AWS::StackName}'
