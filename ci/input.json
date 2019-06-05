@@ -1,0 +1,10 @@
+[
+  {
+    "ParameterKey": "NamingPrefix",
+    "ParameterValue": "cft-advance"
+  },
+  {
+    "ParameterKey": "Email",
+    "ParameterValue": "someone@noreply.com"
+  }
+]
